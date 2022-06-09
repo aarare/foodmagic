@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Food Recommendation System</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.0/css/bulma.min.css">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        html{
+            overflow: hidden;
+        }
+
+        body{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            background-image: url('/static/back.jpg');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+        }
+
+        #login-form-container{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        fieldset {
+            text-align: center; }
+
+    </style>
+</head>
+<body>
+    <div id="login-form-container">
+        <form action="classify" method="POST">
+            <div class="card" style="width: 425px">
+            <div class="card-content">
+                <div class="content">
+                     <div class="media">
+                        <div class="is-size-7 has-text-centered"> <h2>Welcome to Diet Food Recommendation System <h1 style="color: crimson"> FoodMagic</h1></h2></div>
+                    </div>
+                    <label>
+                        <textarea name="text" type="text" class="is-size-6 has-text-centered" placeholder="What would you like to eat today?" rows="3" cols="50" required></textarea>
+                    </label><br><br>
+
+                    <div class="is-size-6 has-text-centered">Do you have any chronic disease?</div><br>
+
+                <form>
+                    <fieldset>
+                      <div class="is-size-6 has-text-centered">Please select type of your diet</div>
+                            <input type="radio" id="diabetic" name="diet_types" value="diabetic">
+                            <label for="diabetic" >Diabetic</label>
+                            <input type="radio" id="gluten_free" name="diet_types" value="gluten_free">
+                            <label for="gluten_free">Gluten Free</label>
+                            <input type="radio" id="ketogenic" name="diet_types" value="ketogenic">
+                            <label for="ketogenic">Ketogenic</label>
+                            <input type="radio" id="vegetarian" name="diet_types" value="vegetarian">
+                            <label for="vegetarian">Vegetarian</label>
+                            <input type="radio" id="low_cholesterol" name="diet_types" value="cholesterol">
+                            <label for="low_cholesterol">Low Cholesterol</label>
+                            <input type="radio" id="low_sodium" name="diet_types" value="sodium">
+                            <label for="low_sodium">Low Sodium</label>
+                            <input type="radio" id="vegan" name="diet_types" value="vegan">
+                            <label for="vegan">Vegan</label>
+                    </fieldset>
+                </form>
+                </div>
+                    <br>
+
+                <div class="field">
+                    <button class="button is-fullwidth is-rounded is-success" style="background-color: crimson">Recommend me!</button>
+                </div>
+                </div>
+            </div>
+        </form></div>
+</body>
+</html>
+
