@@ -47,7 +47,7 @@ def classify_type():
         else:
             render_template('result_rec.html')
     except:
-        return 'Error'
+        return 'Oops! This food is not in the recipes. Please go back.'
 
 
 # Run the Flask server
