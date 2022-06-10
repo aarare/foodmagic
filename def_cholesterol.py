@@ -29,21 +29,18 @@ def get_similar_lowcholesterol(foods):
         # print(ranked_foods)
 
         df_output = pd.DataFrame(
-            columns=['food_name', 'ingredients', 'recipe', 'total_time_new', 'calories', 'protein_gr',
-                     'carbohydrates_gr', 'fat_gr', 'cholesterol_mg',
-                     'sodium_mg', 'reviews'])
+            columns=['food_name', 'ingredients', 'recipe', 'total_time_new', 'nutrition'])
 
         for j in ranked_foods:
             for i in cholesterol["food_name"]:
                 if j == i:
                     df_output = pd.concat([df_output, cholesterol[cholesterol["food_name"] == i].loc[:, ['food_name', 'ingredients', 'recipe',
-                                                                                                        'total_time_new', 'calories', 'protein_gr',
-                                                                                                        'carbohydrates_gr', 'fat_gr', 'cholesterol_mg',
-                                                                                                        'sodium_mg', 'reviews']]])
+                                                                             'total_time_new', 'nutrition']]])
 
-        df_review = df_output.groupby(["food_name"])["reviews_new"].apply(list) #her yemeğin yorumlarını bir liste yaptı
+        #df_review = df_output.groupby(["food_name"])["reviews_new"].apply(list) #her yemeğin yorumlarını bir liste yaptı
 
         df_output = df_output.drop_duplicates(subset="food_name")
+        df_output = df_output.iloc[:3, :]
 
         return df_output
 

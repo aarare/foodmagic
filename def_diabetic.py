@@ -39,6 +39,7 @@ def get_similar_diabetic(foods):
         #df_review = tuple(df_output.groupby(["food_name"])["reviews"].head(10).values)
 
         df_output = df_output.drop_duplicates(subset="food_name")
+        df_output = df_output.iloc[:3, :]
 
         return df_output
 

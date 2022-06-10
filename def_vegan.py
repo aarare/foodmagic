@@ -27,21 +27,17 @@ def get_similar_vegan(foods):
         # print(ranked_foods)
 
         df_output = pd.DataFrame(
-            columns=['food_name', 'ingredients', 'recipe', 'total_time_new', 'calories', 'protein_gr',
-                     'carbohydrates_gr', 'fat_gr', 'cholesterol_mg',
-                     'sodium_mg'])
+            columns=['food_name', 'ingredients', 'recipe', 'total_time_new', 'nutrition'])
 
         for j in ranked_foods:
             for i in vegan["food_name"]:
                 if j == i:
                     df_output = pd.concat(
                         [df_output, vegan[vegan["food_name"] == i].loc[:, ['food_name', 'ingredients', 'recipe',
-                                                                           'total_time_new', 'calories', 'protein_gr',
-                                                                           'carbohydrates_gr', 'fat_gr',
-                                                                           'cholesterol_mg',
-                                                                           'sodium_mg']]])
+                                                                             'total_time_new', 'nutrition']]])
         # df_review = df_output.drop_duplicates(subset="reviews_new")
         df_output = df_output.drop_duplicates(subset="food_name")
+        df_output = df_output.iloc[:3, :]
 
         return df_output
 
