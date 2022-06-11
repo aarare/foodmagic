@@ -1,1 +1,2 @@
 # foodmagic
+Diet Food Recommender
