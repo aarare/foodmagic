@@ -1,1 +1,1 @@
-web:gunicorn foodmagic:app
+web: gunicorn foodmagic:app
